@@ -12,13 +12,14 @@ const ErrorPage = () => {
             Sorry, we couldn`t find this page.
           </p>
           <p className="mt-4 mb-8 dark:text-gray-600">
-            But dont worry, you can find plenty of other things on our homepage.
+            But don`t worry, you can find plenty of other things on our
+            homepage.
           </p>
           <Link
             to="/"
-            className="px-8 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50"
+            className="px-8 py-3 font-semibold rounded bg-orange-400"
           >
-            Back to homepage
+            Back to Homepage
           </Link>
         </div>
       </div>
