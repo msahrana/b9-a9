@@ -2,11 +2,14 @@ import {useForm} from "react-hook-form";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 import useAuth from "../../hooks/useAuth/useAuth";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import {useState} from "react";
 
 const Login = () => {
   const {signIn} = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const {
     register,
@@ -16,13 +19,19 @@ const Login = () => {
 
   const onSubmit = (data) => {
     const {email, password} = data;
+
+    setError("");
+    setSuccess("");
+
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
+        setSuccess("User logged in successfully");
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
         console.log(err);
+        setError("email and password does not matched!");
       });
   };
 
@@ -66,6 +75,8 @@ const Login = () => {
           Login
         </button>
       </form>
+      {error && <p className="text-red-600">{error}</p>}
+      {success && <p className="text-green-600">{success}</p>}
       <div className="flex items-center pt-4 space-x-1">
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
         <p className="px-3 text-sm dark:text-gray-600">

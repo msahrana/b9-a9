@@ -30,17 +30,9 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({isActive}) => (isActive ? "bg-red-500 text-white" : "")}
-          to="/userProfile"
-        >
-          User Profile
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className={({isActive}) => (isActive ? "bg-red-500 text-white" : "")}
           to="/contact"
         >
-          Contact
+          Contact Us
         </NavLink>
       </li>
     </>
