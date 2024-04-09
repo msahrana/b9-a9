@@ -2,9 +2,15 @@ import {useForm} from "react-hook-form";
 import {Link} from "react-router-dom";
 import useAuth from "../../hooks/useAuth/useAuth";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import {useState} from "react";
+import {FaEyeSlash} from "react-icons/fa6";
+import {FaEye} from "react-icons/fa";
 
 const Register = () => {
   const {createUser, updateUser} = useAuth();
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
@@ -14,14 +20,34 @@ const Register = () => {
 
   const onSubmit = (data) => {
     const {email, password, name, photoURL} = data;
+
+    setError("");
+    setSuccess("");
+
+    if (password.length < 6) {
+      setError("Password should be at least 6 characters");
+      return;
+    } else if (
+      !/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(
+        password
+      )
+    ) {
+      setError(
+        "Password should have one uppercase, one lowercase, one digit & one special character"
+      );
+      return;
+    }
+
     createUser(email, password)
       .then((result) => {
+        setSuccess("User create successfully");
         updateUser(name, photoURL).then(() => {
           console.log(result.user);
         });
       })
       .catch((err) => {
         console.log(err);
+        setError(err.message);
       });
   };
 
@@ -81,14 +107,22 @@ const Register = () => {
           <label htmlFor="password" className="block dark:text-gray-600">
             Password
           </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            className="w-full px-4 py-3 rounded-md border"
-            {...register("password", {required: true})}
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              id="password"
+              placeholder="Password"
+              className="w-full px-4 py-3 rounded-md border"
+              {...register("password", {required: true})}
+            />
+            <span
+              className="absolute top-3 right-2 text-xl"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+            </span>
+          </div>
           {errors.password && (
             <span className="text-red-500">Password is required</span>
           )}
@@ -97,6 +131,8 @@ const Register = () => {
           Register
         </button>
       </form>
+      {error && <p className="text-red-600">{error}</p>}
+      {success && <p className="text-green-600">{success}</p>}
       <div className="flex items-center pt-4 space-x-1">
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
         <p className="px-3 text-sm dark:text-gray-600">

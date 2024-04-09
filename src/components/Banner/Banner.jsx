@@ -1,23 +1,36 @@
 import {Swiper, SwiperSlide} from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/navigation";
-
-import {Navigation} from "swiper/modules";
+import {Navigation, Autoplay} from "swiper/modules";
+import banner1 from "../../../public/banner/banner-1.jpg";
+import banner2 from "../../../public/banner/banner-2.jpg";
+import banner3 from "../../../public/banner/banner-3.jpg";
+import banner4 from "../../../public/banner/banner-4.jpg";
 
 const Banner = () => {
   return (
     <>
-      <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+      <Swiper
+        navigation={true}
+        modules={[Navigation, Autoplay]}
+        className="mySwiper"
+        loop={true}
+        autoplay={{
+          delay: 2500,
+        }}
+      >
+        <SwiperSlide>
+          <img className="w-full h-[600px]" src={banner1} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="w-full h-[600px]" src={banner2} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="w-full h-[600px]" src={banner3} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="w-full h-[600px]" src={banner4} alt="" />
+        </SwiperSlide>
       </Swiper>
     </>
   );
