@@ -38,7 +38,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 mt-3">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -64,8 +64,8 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl">
-          Elysian Estates
+        <Link to="/" className="btn btn-ghost text-4xl">
+          <span className="text-red-500">Elysian</span> Estates
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -73,12 +73,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <div className="flex">
-            <div>
-              <img className="size-10 rounded-full" src={user?.photoURL} />
+          <div className="hidden md:flex lg:flex">
+            <div className="tooltip" data-tip={user?.displayName}>
+              <img className="size-10 rounded-full mr-2" src={user?.photoURL} />
             </div>
-            <p className="mx-2 p-2 rounded">{user?.displayName}</p>
-            <p className="mx-2 p-2 rounded">{user?.email}</p>
+            {/* <p className="mx-2 p-2 rounded">{user?.displayName}</p> */}
+            {/* <p className="mx-2 p-2 rounded">{user?.email}</p> */}
             <button
               onClick={handleLogOut}
               className="bg-red-500 px-2 py-1 rounded-lg text-white"

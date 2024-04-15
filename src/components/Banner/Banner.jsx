@@ -20,16 +20,32 @@ const Banner = () => {
         }}
       >
         <SwiperSlide>
-          <img className="w-full h-[600px]" src={banner1} alt="" />
+          <img
+            className="w-full h-[200px] md:h-[600px] lg:h-[600px]"
+            src={banner1}
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full h-[600px]" src={banner2} alt="" />
+          <img
+            className="w-full h-[200px] md:h-[600px] lg:h-[600px]"
+            src={banner2}
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full h-[600px]" src={banner3} alt="" />
+          <img
+            className="w-full h-[200px] md:h-[600px] lg:h-[600px]"
+            src={banner3}
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="w-full h-[600px]" src={banner4} alt="" />
+          <img
+            className="w-full h-[200px] md:h-[600px] lg:h-[600px]"
+            src={banner4}
+            alt=""
+          />
         </SwiperSlide>
       </Swiper>
     </>

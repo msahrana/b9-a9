@@ -5,6 +5,8 @@ import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import Contact from "../../pages/Contact/Contact";
+import UpdateProfile from "../../pages/UpdateProfile/UpdateProfile";
+import EstateDetails from "../../components/EstateDetails/EstateDetails";
 
 export const router = createBrowserRouter([
   {
@@ -17,8 +19,17 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "/profile",
+        element: <UpdateProfile></UpdateProfile>,
+      },
+      {
         path: "/contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/estate/:id",
+        element: <EstateDetails></EstateDetails>,
+        loader: () => fetch("/fakeData.json"),
       },
       {
         path: "/login",
