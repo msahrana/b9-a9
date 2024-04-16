@@ -11,12 +11,20 @@ const EstateCard = ({estate}) => {
     facilities,
     description,
     id,
+    status,
   } = estate;
 
   return (
     <div className="card w-full bg-base-100 shadow-xl">
       <figure className="">
-        <img src={relevant_image} alt="Shoes" className="w-full h-60" />
+        <img
+          src={relevant_image}
+          alt="Shoes"
+          className="w-full h-60 relative"
+        />
+        <div className="absolute bg-yellow-400 text-2xl -translate-x-48 -translate-y-24 px-2 rounded-xl">
+          <p>For : {status}</p>
+        </div>
       </figure>
       <div className="flex justify-between items-center px-3 py-1 bg-black">
         <div className="text-white font-bold">{segment_name}</div>

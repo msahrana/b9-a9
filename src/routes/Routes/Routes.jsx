@@ -7,6 +7,7 @@ import Register from "../../pages/Register/Register";
 import Contact from "../../pages/Contact/Contact";
 import UpdateProfile from "../../pages/UpdateProfile/UpdateProfile";
 import EstateDetails from "../../components/EstateDetails/EstateDetails";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -20,15 +21,27 @@ export const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <UpdateProfile></UpdateProfile>,
+        element: (
+          <PrivateRoute>
+            <UpdateProfile></UpdateProfile>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/contact",
-        element: <Contact></Contact>,
+        element: (
+          <PrivateRoute>
+            <Contact></Contact>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/estate/:id",
-        element: <EstateDetails></EstateDetails>,
+        element: (
+          <PrivateRoute>
+            <EstateDetails></EstateDetails>
+          </PrivateRoute>
+        ),
         loader: () => fetch("/fakeData.json"),
       },
       {
