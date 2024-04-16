@@ -1,4 +1,8 @@
 import {Link} from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+AOS.init();
 
 const EstateCard = ({estate}) => {
   const {
@@ -15,7 +19,11 @@ const EstateCard = ({estate}) => {
   } = estate;
 
   return (
-    <div className="card w-full bg-base-100 shadow-xl">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      className="card w-full bg-base-100 shadow-xl"
+    >
       <figure className="">
         <img
           src={relevant_image}

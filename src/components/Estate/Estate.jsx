@@ -11,7 +11,7 @@ const Estate = () => {
   }, []);
 
   return (
-    <div className="w-full">
+    <div data-aos="fade-down" data-aos-duration="2000" className="w-full">
       <h1 className="text-5xl font-bold text-center my-10"> Our Estate</h1>
       <p className="text-justify w-2/3 mx-auto mb-10">
         <span className="text-red-500 font-bold">Elysian </span>Estates is more

@@ -3,8 +3,12 @@ import OurImg from "../../../public/banner/banner-4.jpg";
 const WhySection = () => {
   return (
     <section className="mt-20">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">
+      <div
+        data-aos="fade-down"
+        data-aos-duration="2000"
+        className="text-center"
+      >
+        <h1 className="text-2xl lg:text-4xl font-bold mb-4">
           Why Elysian Estates Leads the Way
         </h1>
         <p>
@@ -13,7 +17,12 @@ const WhySection = () => {
         </p>
       </div>
       <div className="container flex flex-col-reverse mx-auto lg:flex-row">
-        <div className="flex flex-col px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 dark:bg-violet-600 dark:text-gray-50">
+        <div
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+          className="flex flex-col px-6 py-8 space-y-6 rounded-sm sm:p-8 lg:p-12 lg:w-1/2 xl:w-2/5 dark:bg-violet-600 dark:text-gray-50"
+        >
           <div className="flex space-x-2 sm:space-x-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +98,12 @@ const WhySection = () => {
             </div>
           </div>
         </div>
-        <div className="lg:w-1/2 xl:w-3/5 dark:bg-gray-100">
+        <div
+          data-aos="fade-left"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+          className="lg:w-1/2 xl:w-3/5 dark:bg-gray-100"
+        >
           <div className="flex items-center justify-center p-4 md:p-8 lg:p-12">
             <img
               src={OurImg}
