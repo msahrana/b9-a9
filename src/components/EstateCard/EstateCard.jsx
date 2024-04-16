@@ -22,7 +22,7 @@ const EstateCard = ({estate}) => {
     <div
       data-aos="fade-up"
       data-aos-duration="2000"
-      className="card w-full bg-base-100 shadow-xl"
+      className="card w-full bg-base-100 shadow-xl relative"
     >
       <figure className="">
         <img
@@ -50,7 +50,7 @@ const EstateCard = ({estate}) => {
         ))}
       </div>
       <p className="px-3">{description}..</p>
-      <div className="card-actions">
+      <div className="card-actions absolute bottom-0 mt-4 w-full">
         <Link className="w-full" to={`/estate/${id}`}>
           <button className="btn bg-orange-500 w-full">View Property</button>
         </Link>

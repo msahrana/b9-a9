@@ -1,5 +1,6 @@
 import {useForm} from "react-hook-form";
 import useAuth from "../../hooks/useAuth/useAuth";
+import {Helmet} from "react-helmet-async";
 
 const UpdateProfile = () => {
   const {updateUser} = useAuth();
@@ -24,6 +25,9 @@ const UpdateProfile = () => {
 
   return (
     <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 border-2 mx-auto my-20">
+      <Helmet>
+        <title>Elysian Estates | Update Profile</title>
+      </Helmet>
       <div className="mb-8 text-center">
         <h1 className="my-3 text-4xl font-bold">Update Profile</h1>
       </div>

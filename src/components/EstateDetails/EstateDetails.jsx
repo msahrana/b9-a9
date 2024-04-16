@@ -1,5 +1,6 @@
 // import {useEffect, useState} from "react";
 import {useEffect, useState} from "react";
+import {Helmet} from "react-helmet-async";
 import {useParams, useLoaderData, Link} from "react-router-dom";
 const EstateDetails = () => {
   const {id} = useParams();
@@ -21,10 +22,14 @@ const EstateDetails = () => {
     estate_title,
     location,
     description,
+    facilities,
   } = card || {};
 
   return (
     <div className="card w-full shadow-xl mx-auto max-w-7xl">
+      <Helmet>
+        <title>Elysian Estates | Details Page</title>
+      </Helmet>
       <figure>
         <img className="w-full h-[700px]" src={relevant_image} alt="Shoes" />
       </figure>
@@ -39,7 +44,9 @@ const EstateDetails = () => {
       </div>
       <div className="ml-10">
         <h2 className="text-2xl font-bold">Facilities:</h2>
-        <div></div>
+        {facilities?.map((item, idx) => (
+          <li key={idx}>{item}</li>
+        ))}
       </div>
       <p className="text-center my-8">
         <span className="text-xl font-bold">Description:</span>

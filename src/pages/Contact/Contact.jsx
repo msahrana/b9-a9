@@ -1,6 +1,11 @@
+import {Helmet} from "react-helmet-async";
+
 const Contact = () => {
   return (
     <section className="text-gray-600 body-font relative">
+      <Helmet>
+        <title>Elysian Estates | Contact Us</title>
+      </Helmet>
       <div className="container px-5 py-16 mx-auto">
         <div className="flex flex-col text-center w-full mb-12">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
@@ -57,7 +62,7 @@ const Contact = () => {
               </div>
             </div>
             <div className="p-2 w-full">
-              <button className="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+              <button className="flex mx-auto text-white bg-orange-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                 Send
               </button>
             </div>
