@@ -3,7 +3,7 @@ import useAuth from "../../hooks/useAuth/useAuth";
 import {Helmet} from "react-helmet-async";
 
 const UpdateProfile = () => {
-  const {updateUser} = useAuth();
+  const {updateUser, user, setUser, setLoading} = useAuth();
 
   const {
     register,
@@ -15,13 +15,15 @@ const UpdateProfile = () => {
     const {name, photoURL} = data;
 
     updateUser(name, photoURL)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
+        setUser({...user, displayName: name, photoURL: photoURL});
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+  console.log(user);
 
   return (
     <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 border-2 mx-auto my-20">

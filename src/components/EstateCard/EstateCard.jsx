@@ -1,6 +1,9 @@
 import {Link} from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import {RiHome7Line} from "react-icons/ri";
+import {CiDroplet} from "react-icons/ci";
+import {FaLocationDot} from "react-icons/fa6";
 
 AOS.init();
 
@@ -35,12 +38,19 @@ const EstateCard = ({estate}) => {
         </div>
       </figure>
       <div className="flex justify-between items-center px-3 py-1 bg-black">
-        <div className="text-white font-bold">{segment_name}</div>
-        <div className="text-yellow-500 font-bold">{area}</div>
+        <div className="text-white font-bold flex gap-1 items-center">
+          <CiDroplet />
+          {segment_name}
+        </div>
+        <div className="text-yellow-500 font-bold flex gap-1 items-center">
+          <RiHome7Line />
+          {area}
+        </div>
         <div className="text-red-400 font-bold">{price}</div>
       </div>
       <h2 className="card-title mx-auto my-4">{estate_title}</h2>
-      <div className="flex gap-3 items-center mx-auto">
+      <div className="flex gap-3 items-center mx-auto tex-2xl text-green-500">
+        <FaLocationDot />
         <p>{location}</p>
       </div>
       <div className="ml-20 mt-4">

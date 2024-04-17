@@ -2,6 +2,10 @@
 import {useEffect, useState} from "react";
 import {Helmet} from "react-helmet-async";
 import {useParams, useLoaderData, Link} from "react-router-dom";
+import {RiHome7Line} from "react-icons/ri";
+import {CiDroplet} from "react-icons/ci";
+import {FaLocationDot} from "react-icons/fa6";
+
 const EstateDetails = () => {
   const {id} = useParams();
   const data = useLoaderData();
@@ -34,12 +38,19 @@ const EstateDetails = () => {
         <img className="w-full h-[700px]" src={relevant_image} alt="Shoes" />
       </figure>
       <div className="flex justify-between items-center px-5 py-4 bg-black">
-        <div className="text-white text-2xl font-bold">{segment_name}</div>
-        <div className="text-yellow-500 text-2xl font-bold">{area}</div>
+        <div className="text-white text-2xl font-bold flex gap-1 items-center">
+          <CiDroplet />
+          {segment_name}
+        </div>
+        <div className="text-yellow-500 text-2xl font-bold flex gap-1 items-center">
+          <RiHome7Line />
+          {area}
+        </div>
         <div className="text-red-500 text-2xl font-bold">{price}</div>
       </div>
       <h2 className="card-title text-2xl mx-auto my-4">{estate_title}</h2>
-      <div className="flex gap-3 items-center mx-auto text-xl">
+      <div className="flex gap-3 items-center mx-auto text-2xl text-green-500">
+        <FaLocationDot />
         <p>{location}</p>
       </div>
       <div className="ml-10">
