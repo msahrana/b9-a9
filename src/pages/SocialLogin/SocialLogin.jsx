@@ -1,12 +1,37 @@
+import {useLocation, useNavigate} from "react-router-dom";
 import useAuth from "../../hooks/useAuth/useAuth";
 
 const SocialLogin = () => {
   const {createGoogleUser, createGithubUser} = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleGoogle = () => {
+    createGoogleUser()
+      .then((result) => {
+        console.log(result.user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleGithub = () => {
+    createGithubUser()
+      .then((result) => {
+        console.log(result.user);
+        navigate(location?.state ? location.state : "/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="flex justify-center space-x-4">
       <button
-        onClick={() => createGoogleUser()}
+        onClick={() => handleGoogle()}
         aria-label="Log in with Google"
         className="p-3 rounded-sm"
       >
@@ -28,7 +53,7 @@ const SocialLogin = () => {
         </svg>
       </button>
       <button
-        onClick={() => createGithubUser()}
+        onClick={() => handleGithub()}
         aria-label="Log in with GitHub"
         className="p-3 rounded-sm"
       >
