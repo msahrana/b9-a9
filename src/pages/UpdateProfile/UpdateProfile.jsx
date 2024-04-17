@@ -9,7 +9,13 @@ const UpdateProfile = () => {
     register,
     handleSubmit,
     formState: {errors},
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      name: user.displayName,
+      email: user.email,
+      photoURL: user.photoURL,
+    },
+  });
 
   const onSubmit = (data) => {
     const {name, photoURL} = data;
@@ -49,6 +55,22 @@ const UpdateProfile = () => {
             />
             {errors.name && (
               <span className="text-red-500">Name is required</span>
+            )}
+          </div>
+          <div>
+            <label htmlFor="email" className="block mb-2 text-sm">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              className="w-full px-4 py-3 border rounded-md"
+              {...register("email", {required: true, disabled: true})}
+            />
+            {errors.email && (
+              <span className="text-red-500">Email is required</span>
             )}
           </div>
           <div>

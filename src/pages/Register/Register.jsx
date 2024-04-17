@@ -7,7 +7,7 @@ import {FaEyeSlash} from "react-icons/fa6";
 import {FaEye} from "react-icons/fa";
 
 const Register = () => {
-  const {createUser, updateUser} = useAuth();
+  const {createUser, updateUser, user, setUser} = useAuth();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -43,6 +43,7 @@ const Register = () => {
         setSuccess("User create successfully");
         updateUser(name, photoURL).then(() => {
           console.log(result.user);
+          setUser({...user, displayName: name, photoURL: photoURL});
         });
       })
       .catch((err) => {
