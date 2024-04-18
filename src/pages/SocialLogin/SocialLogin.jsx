@@ -1,5 +1,6 @@
 import {useLocation, useNavigate} from "react-router-dom";
 import useAuth from "../../hooks/useAuth/useAuth";
+import Swal from "sweetalert2";
 
 const SocialLogin = () => {
   const {createGoogleUser, createGithubUser} = useAuth();
@@ -10,6 +11,13 @@ const SocialLogin = () => {
     createGoogleUser()
       .then((result) => {
         console.log(result.user);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Added Successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
@@ -21,6 +29,13 @@ const SocialLogin = () => {
     createGithubUser()
       .then((result) => {
         console.log(result.user);
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Added Successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {

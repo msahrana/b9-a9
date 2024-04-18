@@ -5,11 +5,12 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import {useState} from "react";
 import {FaEyeSlash} from "react-icons/fa6";
 import {FaEye} from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {createUser, updateUser, user, setUser} = useAuth();
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  // const [success, setSuccess] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -22,7 +23,7 @@ const Register = () => {
     const {email, password, name, photoURL} = data;
 
     setError("");
-    setSuccess("");
+    // setSuccess("");
 
     if (password.length < 6) {
       setError("Password should be at least 6 characters");
@@ -40,7 +41,14 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        setSuccess("User create successfully");
+        // setSuccess("User create successfully");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User create successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         updateUser(name, photoURL).then(() => {
           console.log(result.user);
           setUser({...user, displayName: name, photoURL: photoURL});
@@ -133,7 +141,7 @@ const Register = () => {
         </button>
       </form>
       {error && <p className="text-red-600">{error}</p>}
-      {success && <p className="text-green-600">{success}</p>}
+      {/* {success && <p className="text-green-600">{success}</p>} */}
       <div className="flex items-center pt-4 space-x-1">
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
         <p className="px-3 text-sm dark:text-gray-600">

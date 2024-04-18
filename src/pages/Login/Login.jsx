@@ -3,13 +3,14 @@ import {Link, useLocation, useNavigate} from "react-router-dom";
 import useAuth from "../../hooks/useAuth/useAuth";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import {useState} from "react";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const {signIn} = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
+  // const [success, setSuccess] = useState("");
 
   const {
     register,
@@ -21,12 +22,19 @@ const Login = () => {
     const {email, password} = data;
 
     setError("");
-    setSuccess("");
+    // setSuccess("");
 
     signIn(email, password)
       .then((result) => {
         console.log(result.user);
-        setSuccess("User logged in successfully");
+        // setSuccess("User logged in successfully");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User logged in successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
@@ -76,7 +84,7 @@ const Login = () => {
         </button>
       </form>
       {error && <p className="text-red-600">{error}</p>}
-      {success && <p className="text-green-600">{success}</p>}
+      {/* {success && <p className="text-green-600">{success}</p>} */}
       <div className="flex items-center pt-4 space-x-1">
         <div className="flex-1 h-px sm:w-16 dark:bg-gray-300"></div>
         <p className="px-3 text-sm dark:text-gray-600">

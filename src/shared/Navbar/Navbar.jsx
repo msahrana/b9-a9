@@ -1,12 +1,13 @@
 import {useContext} from "react";
 import {Link, NavLink} from "react-router-dom";
 import {AuthContext} from "../../providers/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const {user, logOut} = useContext(AuthContext);
 
   const handleLogOut = () => {
-    logOut().then().catch();
+    logOut().then(Swal.fire("User Deleted Successfully!")).catch();
   };
 
   const navLinks = (
