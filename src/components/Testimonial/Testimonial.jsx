@@ -28,8 +28,8 @@ const Testimonial = () => {
             </svg>
             <p className="px-6 py-1 text-lg italic text-justify">
               I couldn`t be happier with my experience using this real estate
-              website. As a first-time homebuyer, I was initially overwhelmed by
-              the prospect of finding the perfect property. However, this
+              website. As a first-time home buyer, I was initially overwhelmed
+              by the prospect of finding the perfect property. However, this
               platform made the process seamless and enjoyable. The
               user-friendly interface allowed me to easily navigate through
               listings and narrow down my search criteria. The detailed property
